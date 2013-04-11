@@ -1,0 +1,9 @@
+#source /home/zhangchao08/Dropbox/autostart.sh
+alias ll="ls -l --color=tty"
+alias ls="ls --color=tty"
+alias emacs="/home/zhangchao08/program_files/emacs-24-3/bin/emacs"
+alias vim="/home/zhangchao08/program_files/vim-7-3/bin/vim"
+#alias bnac="/home/zhangchao08/shell_cmd/bnac"
+#alias samba_dev06="/home/zhangchao08/shell_cmd/samba_dev06"
+export PATH=$PATH:/home/zhangchao08/Dropbox/shell_cmd/
+export PATH=$PATH:/home/zhangchao08/program_files/emacs-24-3/bin/
