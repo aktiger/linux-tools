@@ -8,25 +8,39 @@
   (global-font-lock-mode t))
 (require 'tramp)
 (setq tramp-default-method "ssh")
-(setq tramp-shell-prompt-pattern "^[^$>\n]*[#$%>] *\\(\[[0-9;\]]*[a-zA-Z] *\\)*")
+;(setq tramp-shell-prompt-pattern "^[^$>\n]*[#$%>] *\\(\[[0-9;\]]*[a-zA-Z] *\\)*")
+;(setq tramp-shell-prompt-pattern "^[^$>\n]*[#$%>] *\\(\[[0-9;\]]*[a-zA-Z\\~] *\\)*")
+;(setq tramp-shell-prompt-pattern "^.*-bash-baidu-ssl$")
 ;(setq tramp-shell-prompt-pattern "\\(?:^\\| ^M\\)[^#$%>\n]*[#$%>] *\\(\e\\[[0-9;]*[a-zA-Z] *\\)*")
 ;(setq tramp-shell-prompt-pattern "$")
 ;(setq tramp-password-prompt-regexp ".*[Pp]assword: *$")
 ;(setq tramp-shell-prompt-pattern "^[^;$#>]*[;$#>] *")
+(setq shell-prompt-pattern "^[^>$][>$] *")
 
-(setq
-  tramp-password-prompt-regexp
-   (concat
-    "^.*"
-   (regexp-opt
-   '("passphrase" "Passphrase"
+
+;(add-to-list 'tramp-default-proxies-alist
+ ;        '("\\`cq01-dt-dev06\\.cq01\\.baidu\\.com\\'"
+  ;          nil
+   ;         "/ssh:zhangchao08@bpitrelay.internal.baidu.com:"))
+
+
+(add-to-list 'tramp-restricted-shell-hosts-alist
+  "\\`cq01-dt-dev06\\.cq01\\.baidu\\.com\\'")
+
+
+;(setq
+; tramp-password-prompt-regexp
+ ;  (concat
+  ;  "^.*"
+   ;(regexp-opt
+;   '("passphrase" "Passphrase"
     ;; English
-   "password" "Password"
-   ;; Deutsch
-   "passwort" "Passwort"
+;   "password" "Password"
+;   ;; Deutsch
+;   "passwort" "Passwort"
    ;; Français
-   "mot de passe" "Mot de passe") t)
-   ".*:\0? *"))
+;   "mot de passe" "Mot de passe") t)
+;   ".*:\0? *"))
 
 ;cq01-dt-dev06.cq01.baidu.com
 ;bpitrelay.internal.baidu.com
@@ -51,10 +65,6 @@
   ;          "\\`zhangchao08\\'"
    ;         "/ssh:bpitrelay\\.internal\\.baidu\\.com:"))
 
-(add-to-list 'tramp-default-proxies-alist
-         '("\\`cq01-dt-dev06\\.cq01\\.baidu\\.com\\'"
-            nil
-            "/ssh:zhangchao08@bpitrelay.internal.baidu.com:"))
 
 ;(add-to-list 'tramp-default-proxies-alist 
 ;             '("\\`cq01-dt-dev06\\.cq01\\baidu\\.com\\'" 
